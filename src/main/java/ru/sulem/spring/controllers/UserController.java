@@ -69,6 +69,7 @@ public class UserController {
         return modelAndView;
     }
 
+    //если пришел запрос на удаление,то удаляем и
     @RequestMapping(value="/delete/{id}", method = RequestMethod.GET)
     public ModelAndView deleteFilm(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
