@@ -17,27 +17,15 @@ public class User implements Serializable {
     private String name;
 
 //    @OneToMany(mappedBy = "Users", fetch=FetchType.EAGER)
-//    private Set<Note> notes = new HashSet<Note>();
+//    private List<Note> notes = new ArrayList<>();
 //
-//    public Set<Note> getNotes() {
+//    public List<Note>getNotes() {
 //        return this.notes;
-//    }
-//
-//    public void setNotes(Set<Note> notes) {
-//        this.notes = notes;
 //    }
 //
 //    public void addNotes(Note note){
 //        note.setUser(this);
 //        getNotes().add(note);
-//    }
-//
-//    public int getNotesCount() {
-//        return notes.size();
-//    }
-//
-//    public void removeNote(Note note) {
-//        getNotes().remove(note);
 //    }
 
 

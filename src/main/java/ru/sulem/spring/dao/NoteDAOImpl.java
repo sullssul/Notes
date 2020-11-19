@@ -3,10 +3,12 @@ package ru.sulem.spring.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import ru.sulem.spring.models.Note;
 
 import java.util.List;
 
+@Repository
 public class NoteDAOImpl implements NoteDAO {
 
     private SessionFactory sessionFactory;
@@ -18,9 +20,9 @@ public class NoteDAOImpl implements NoteDAO {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<Note> allNotes() {
+    public List<Note> allNotes(int id) {
         Session session = sessionFactory.getCurrentSession();
-        return (List<Note>) session.createQuery("select n from ru.sulem.spring.models.Note n").list();
+        return (List<Note>) session.createQuery("select n from ru.sulem.spring.models.Note n WHERE user.id="+id).list();
     }
 
     @Override

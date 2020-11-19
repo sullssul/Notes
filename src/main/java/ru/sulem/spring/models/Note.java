@@ -26,9 +26,14 @@ public class Note implements Serializable  {
     @Column(name = "title")
     private String title;
 
-    @ManyToOne (optional=false, cascade=CascadeType.ALL)
+
+    @ManyToOne (optional = false,cascade = CascadeType.DETACH)
     @JoinColumn (name="user_id",nullable = false)
     private User user;
+
+    public User getUser() {
+        return user;
+    }
 
     public void setUser(User user) {
         this.user = user;

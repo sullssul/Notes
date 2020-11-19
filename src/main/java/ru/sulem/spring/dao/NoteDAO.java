@@ -5,7 +5,7 @@ import ru.sulem.spring.models.Note;
 import java.util.List;
 
 public interface NoteDAO {
-    List<Note> allNotes();
+    List<Note> allNotes(int id);
     void addNote(Note note);
     void deleteNote(Note note);
     void editNote(Note note);

@@ -14,7 +14,6 @@
 <body>
 
 <c:url value="/createUser" var="var"/>
-
 <form action="${var}" method="POST">
     <label for="name">name</label>
     <input type="text" name="name" id="name" value="${user.name}">
