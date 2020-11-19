@@ -11,6 +11,20 @@
 <head>
     <title>Notes</title>
 </head>
+
+<style type="text/css">
+    TABLE {
+        width: 500px; /* Ширина таблицы */
+        border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 3px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
 <body>
 <h1>All notes of ${user.name} </h1>
 
@@ -23,16 +37,16 @@
 <hr/>
 <table>
     <tr>
-        <th>title</th>
-        <th>|date of creation</th>
-        <th>|date of last change|</th>
-        <th colspan="3">action       |</th>
+        <th>title&nbsp</th>
+        <th>date of creation &nbsp</th>
+        <th>date of last change &nbsp</th>
+        <th colspan="3">action &nbsp&nbsp</th>
     </tr>
     <c:forEach var="note" items="${noteList}">
     <tr>
         <td>${note.title}</td>
-        <td>  ${note.dateCreation}</td>
-        <td>  ${note.dateLastEdit}</td>
+        <td>${note.dateCreation}</td>
+        <td>${note.dateLastEdit}</td>
 
         <td>
             <a href="/showNote/${note.id}">Show</a>

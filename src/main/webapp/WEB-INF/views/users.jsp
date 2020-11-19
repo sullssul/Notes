@@ -11,6 +11,20 @@
 <head>
     <title>Choose Users</title>
 </head>
+
+<style type="text/css">
+    TABLE {
+        width: 300px; /* Ширина таблицы */
+        border-collapse: collapse; /* Убираем двойные линии между ячейками */
+    }
+    TD, TH {
+        padding: 5px; /* Поля вокруг содержимого таблицы */
+        border: 1px solid black; /* Параметры рамки */
+    }
+    TH {
+        background: #b0e0e6; /* Цвет фона */
+    }
+</style>
 <body>
 <h1>Users</h1>
 <c:url value="/createUser" var="createUser"/>
@@ -19,9 +33,9 @@
 <hr/>
 <table>
     <tr>
-        <th>id</th>
-        <th>name</th>
-        <th colspan="3">action</th>
+        <th>id &nbsp</th>
+        <th>name &nbsp</th>
+        <th colspan="3">action </th>
     </tr>
     <c:forEach var="user" items="${usersList}">
         <tr>

@@ -24,7 +24,7 @@ public class NoteController {
     private UserService userService;
     private int user_id;
 
-
+    // для работы с данными
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
@@ -49,6 +49,7 @@ public class NoteController {
         return modelAndView;
     }
 
+    //если перешли по ссылке на удаление, то удаляем
     @RequestMapping(value="/deleteNote/{id}", method = RequestMethod.GET)
     public ModelAndView deleteNote(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView();
@@ -59,7 +60,7 @@ public class NoteController {
     }
 
 
-    // если переходим на на редачить пользователя
+    // если переходим на  редачить заметку
     @RequestMapping(value = "/editNote/{id}", method = RequestMethod.GET)
     public ModelAndView editPageNote(@PathVariable("id") int id) {
         Note note = noteService.getNoteById(id);
@@ -69,7 +70,7 @@ public class NoteController {
         return modelAndView;
     }
 
-    // когда отредаяили и нажали submit отправит обратно ко всем пользователям
+    // когда отредаяили и нажали изменить отправит обратно ко всем заметкам и обновить данные
     @RequestMapping(value = "/editNote", method = RequestMethod.POST)
     public ModelAndView editNote(@ModelAttribute("note") Note note) {
         ModelAndView modelAndView = new ModelAndView();
@@ -83,7 +84,7 @@ public class NoteController {
         return modelAndView;
     }
 
-    //когда нажали на создать нового пользователя открываем нужное окно
+    //когда нажали на создать новую заметку открываем нужное окно
     @RequestMapping(value = "/createNote", method = RequestMethod.GET)
     public ModelAndView addPageNote() {
         ModelAndView modelAndView = new ModelAndView();
@@ -91,7 +92,7 @@ public class NoteController {
         return modelAndView;
     }
 
-    //создаем нового пользователя и открвываем всех пользователей
+    //создаем  новоую заметку и открвываем все заметки
     @RequestMapping(value = "/createNote", method = RequestMethod.POST)
     public ModelAndView addNote(@ModelAttribute("note") Note note) {
         ModelAndView modelAndView = new ModelAndView();
@@ -111,7 +112,7 @@ public class NoteController {
     public ModelAndView showPageNote(@PathVariable("id") int id) {
         Note note = noteService.getNoteById(id);
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("editNote");
+        modelAndView.setViewName("showNote");
         modelAndView.addObject("note", note);
         return modelAndView;
     }

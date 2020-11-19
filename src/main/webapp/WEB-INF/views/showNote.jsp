@@ -13,8 +13,20 @@
     <title>${note.title}</title>
 </head>
 <body>
-
-
+<c:url value="/editNote/${note.id}" var="editNote"/>
+<a href="${editNote}">Edit Note</a>
+&nbsp
+<c:url value="/deleteNote/${note.id}" var="deleteNote"/>
+<a href="${deleteNote}">Delete Note</a>
+&nbsp
+<c:url value="/notes/${note.user.id}" var="notes"/>
+<a href="${notes}">go to Notes</a>
+<hr/>
+<h1>Title:</h1>
+<p>${note.title}</p>
+<br/>
+<h1>Text:</h1>
+<p>${note.content}</p>
 
 </body>
 </html>

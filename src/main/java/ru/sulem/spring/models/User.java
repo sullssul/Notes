@@ -16,20 +16,6 @@ public class User implements Serializable {
     @Column(name = "name")
     private String name;
 
-//    @OneToMany(mappedBy = "Users", fetch=FetchType.EAGER)
-//    private List<Note> notes = new ArrayList<>();
-//
-//    public List<Note>getNotes() {
-//        return this.notes;
-//    }
-//
-//    public void addNotes(Note note){
-//        note.setUser(this);
-//        getNotes().add(note);
-//    }
-
-
-
     public String getName() {
         return name;
     }
