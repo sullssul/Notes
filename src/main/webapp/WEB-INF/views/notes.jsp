@@ -14,7 +14,7 @@
 
 <style type="text/css">
     TABLE {
-        width: 500px; /* Ширина таблицы */
+        width: 800px; /* Ширина таблицы */
         border-collapse: collapse; /* Убираем двойные линии между ячейками */
     }
     TD, TH {

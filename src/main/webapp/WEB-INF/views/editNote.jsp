@@ -19,12 +19,14 @@
     <input type="hidden" name="dateCreation" value="${note.dateCreation}">
 
 
-    <label for="title">title</label>
+    <label for="title">Title:</label>
+    <br/>
     <input type="title" name="title" id="title" value="${note.title}">
-
-    <label for="content">content</label>
-    <input type="content" name="content" id="content" value="${note.content}">
-
+    <br/>
+    <label for="content">Content:</label>
+    <br/>
+    <textarea  name="content" cols="50" id="content" rows="5">${note.content}</textarea>
+    <br/>
     <input type="submit" value="Edit Note">
 </form>
 

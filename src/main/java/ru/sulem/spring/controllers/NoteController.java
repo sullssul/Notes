@@ -37,7 +37,7 @@ public class NoteController {
 
     // если нажали показать заметки открываем список заметок пользователя
     @RequestMapping(value = "/notes/{id}", method = RequestMethod.GET)
-    public ModelAndView allUsers(@PathVariable("id") int id){
+    public ModelAndView allNotes(@PathVariable("id") int id){
         user_id=id;
         List<Note> notes=noteService.allNotes(user_id);
         System.out.println(notes.size());
@@ -72,14 +72,17 @@ public class NoteController {
 
     // когда отредаяили и нажали изменить отправит обратно ко всем заметкам и обновить данные
     @RequestMapping(value = "/editNote", method = RequestMethod.POST)
-    public ModelAndView editNote(@ModelAttribute("note") Note note) {
+    public ModelAndView editNote(@ModelAttribute("note") Note note,@ModelAttribute("content") String s) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/notes/"+user_id);
+
         note.setUser(userService.getUserById(user_id));
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
         String strDate = dateFormat.format(date);
         note.setDateLastEdit(strDate);
+        note.setContent(s);
+
         noteService.editNote(note);
         return modelAndView;
     }
@@ -94,16 +97,20 @@ public class NoteController {
 
     //создаем  новоую заметку и открвываем все заметки
     @RequestMapping(value = "/createNote", method = RequestMethod.POST)
-    public ModelAndView addNote(@ModelAttribute("note") Note note) {
+    public ModelAndView addNote(@ModelAttribute("note") Note note,@ModelAttribute("content") String s) {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("redirect:/notes/"+user_id);
+
         Date date = Calendar.getInstance().getTime();
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy hh:mm:ss");
         String strDate = dateFormat.format(date);
+
         note.setDateLastEdit(strDate);
         note.setDateCreation(strDate);
+        note.setContent(s);
         note.setUser(userService.getUserById(user_id));
         noteService.addNote(note);
+
         return modelAndView;
     }
 

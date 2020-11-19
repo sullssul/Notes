@@ -15,11 +15,14 @@
 <c:url value="/createNote" var="var"/>
 
 <form action="${var}" method="POST">
-    <label for="title">title</label>
+    <label for="title">Title:</label>
+    <br/>
     <input type="title" name="title" id="title" value="${note.title}">
-
-    <label for="content">content</label>
-    <input type="content" name="content" id="content" value="${note.content}">
+    <br/>
+    <label for="content">Content:</label>
+    <br/>
+    <textarea  name="content" cols="50" id="content" rows="5"> </textarea>
+    <br/>
     <input type="submit" value="Create new Note">
 </form>
 
